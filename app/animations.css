@@ -1,0 +1,112 @@
+/* ============================================================
+   animations.css – Scroll & Hover Animations
+   ============================================================ */
+
+/* Reveal on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
+}
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+.reveal-left.revealed { opacity: 1; transform: translateX(0); }
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+.reveal-right.revealed { opacity: 1; transform: translateX(0); }
+.reveal-scale {
+    opacity: 0;
+    transform: scale(.93);
+    transition: opacity .6s ease, transform .6s ease;
+}
+.reveal-scale.revealed { opacity: 1; transform: scale(1); }
+
+/* Stagger delays */
+.delay-1 { transition-delay: .1s; }
+.delay-2 { transition-delay: .2s; }
+.delay-3 { transition-delay: .3s; }
+.delay-4 { transition-delay: .4s; }
+.delay-5 { transition-delay: .5s; }
+.delay-6 { transition-delay: .6s; }
+.delay-7 { transition-delay: .7s; }
+.delay-8 { transition-delay: .8s; }
+
+/* Counter animation */
+.count-up { font-variant-numeric: tabular-nums; }
+
+/* Pulse ring */
+@keyframes pulseRing {
+    0% { box-shadow: 0 0 0 0 rgba(37,99,235,.4); }
+    70% { box-shadow: 0 0 0 16px rgba(37,99,235,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
+}
+.pulse-ring { animation: pulseRing 2.5s infinite; }
+
+/* Float bob */
+@keyframes floatBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.float-bob { animation: floatBob 4s ease-in-out infinite; }
+
+/* Shimmer loading skeleton */
+@keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+.shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Hero entrance */
+@keyframes heroEnter {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-content > * {
+    animation: heroEnter .8s ease forwards;
+}
+.hero-content .hero-badge { animation-delay: .1s; opacity: 0; }
+.hero-content h1 { animation-delay: .2s; opacity: 0; }
+.hero-content .hero-subtitle { animation-delay: .35s; opacity: 0; }
+.hero-content .hero-actions { animation-delay: .5s; opacity: 0; }
+.hero-content .hero-stats { animation-delay: .65s; opacity: 0; }
+.hero-visual { animation: heroEnter .9s .3s ease both; opacity: 0; }
+
+/* Stat counter pop */
+@keyframes counterPop {
+    0% { transform: scale(0.5); opacity: 0; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Gradient shift */
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+.gradient-animated {
+    background-size: 200% 200%;
+    animation: gradientShift 5s ease infinite;
+}
+
+/* Spin slow for decorative elements */
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Blink cursor for hero text */
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
